@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="app-title">
+                <h1>SpendDiary</h1>
+            </div>
+            <div class="profile-section">
+                <div class="profile-image">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h2 id="userName">User Name</h2>
+                <p id="userEmail">user@email.com</p>
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-section="dashboard"><i class="fas fa-home"></i> Dashboard</li>
+                <li data-section="expenses"><i class="fas fa-receipt"></i> Expenses</li>
+                <li data-section="add-expense"><i class="fas fa-plus-circle"></i> Add Expense</li>
+                <li data-section="analytics"><i class="fas fa-chart-bar"></i> Analytics</li>
+                <li data-section="settings"><i class="fas fa-cog"></i> Settings</li>
+                <li data-section="contact"><i class="fas fa-address-card"></i> Contact</li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <div class="section" id="dashboard">
+                <h1>Dashboard</h1>
+                <div class="summary-cards">
+                    <div class="card">
+                        <h3>Available Funds</h3>
+                        <p id="totalBalance">$0.00</p>
+                    </div>
+                    <div class="card">
+                        <h3>Monthly Expenses</h3>
+                        <p id="monthlyExpenses">$0.00</p>
+                    </div>
+                    <div class="card">
+                        <h3>Monthly Budget</h3>
+                        <p id="monthlyBudget">$0.00</p>
+                        <input type="number" id="budgetInput" step="0.01" placeholder="Set budget" class="budget-input">
+                        <button class="btn-secondary" id="setBudget">Set Budget</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section hidden" id="expenses">
+                <h1>Expenses</h1>
+                <div class="expenses-list" id="expensesList">
+                    <!-- Expenses will be dynamically added here -->
+                </div>
+            </div>
+
+            <div class="section hidden" id="add-expense">
+                <h1>Add New Expense</h1>
+                <form id="expenseForm" class="expense-form">
+                    <div class="form-group">
+                        <label for="expenseTitle">Title</label>
+                        <input type="text" id="expenseTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expenseAmount">Amount</label>
+                        <input type="number" id="expenseAmount" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expenseCategory">Category</label>
+                        <select id="expenseCategory" required>
+                            <option value="food">Food</option>
+                            <option value="transport">Transport</option>
+                            <option value="utilities">Utilities</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="shopping">Shopping</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="expenseDate">Date</label>
+                        <input type="date" id="expenseDate" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Add Expense</button>
+                </form>
+            </div>
+
+            <div class="section hidden" id="analytics">
+                <h1>Analytics</h1>
+                <div class="analytics-container">
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section hidden" id="settings">
+                <h1>Settings</h1>
+                <div class="settings-container">
+                    <div class="form-group">
+                        <label for="userNameInput">Display Name</label>
+                        <input type="text" id="userNameInput">
+                    </div>
+                    <div class="form-group">
+                        <label for="userEmailInput">Email</label>
+                        <input type="email" id="userEmailInput">
+                    </div>
+                    <button class="btn-primary" id="saveSettings">Save Changes</button>
+                </div>
+            </div>
+
+            <div class="section hidden" id="contact">
+                <h1>Contact Us</h1>
+                <div class="contact-container">
+                    <div class="contact-card">
+                        <div class="contact-info">
+                            <h3>Dhruv Duggal</h3>
+                            <p><i class="fas fa-envelope"></i> 2205375@kiit.ac.in</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-info">
+                            <h3>Anurag Sharma</h3>
+                            <p><i class="fas fa-envelope"></i> 2205273@kiit.ac.in</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-info">
+                            <h3>Ayaan Agarwal</h3>
+                            <p><i class="fas fa-envelope"></i> 2205023@kiit.ac.in</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
