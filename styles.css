@@ -162,100 +162,62 @@ body {
     display: block;
 }
 
-/* Summary Cards Grid */
+/* Card Style */
 .summary-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Slightly increased min width for better spacing */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
-    align-items: stretch; /* Ensures cards have equal height */
 }
 
-/* Card Style */
 .card {
     background-color: var(--card-background);
-    padding: 1.8rem; /* More padding for a balanced layout */
+    padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08); /* Softer shadow for a modern look */
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-    position: relative;
-    overflow: hidden; /* Prevents overflow issues */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed);
 }
 
-/* Card Hover Effect */
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.12); /* Adds depth */
 }
 
-/* Title */
 .card h3 {
     color: var(--text-color);
     margin-bottom: 0.5rem;
-    font-size: 1.2rem; /* Slightly larger for readability */
 }
 
-/* Value */
 .card p {
-    font-size: 1.6rem; /* Bigger for emphasis */
+    font-size: 1.5rem;
     font-weight: bold;
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
-/* Budget Input */
 .budget-input {
     width: 100%;
-    padding: 0.6rem;
+    padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 6px;
     margin-bottom: 0.5rem;
-    font-size: 1rem;
-    transition: border-color 0.3s ease-in-out;
+    font-size: 0.9rem;
 }
 
-/* Budget Input Focus Effect */
-.budget-input:focus {
-    border-color: var(--primary-color);
-    outline: none;
-    box-shadow: 0 0 5px rgba(108, 92, 231, 0.4); /* Subtle focus effect */
-}
-
-/* Secondary Button */
 .btn-secondary {
     background-color: var(--secondary-color);
     color: white;
-    padding: 0.6rem 1rem; /* Slightly bigger for better clickability */
+    padding: 0.5rem 1rem;
     border: none;
-    border-radius: 8px; /* More rounded corners */
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: background-color var(--transition-speed), transform 0.2s;
+    font-size: 0.9rem;
+    transition: background-color var(--transition-speed);
     width: 100%;
 }
 
-/* Button Hover Effect */
 .btn-secondary:hover {
     background-color: var(--primary-color);
-    transform: scale(1.05); /* Adds slight scaling for feedback */
 }
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .summary-cards {
-        grid-template-columns: 1fr; /* Single column layout for small screens */
-    }
-    
-    .card {
-        padding: 1.5rem;
-    }
-    
-    .btn-secondary {
-        font-size: 0.9rem;
-    }
-}
-
 
 /* Form Style */
 .expense-form {
