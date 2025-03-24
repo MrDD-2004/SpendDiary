@@ -110,12 +110,50 @@ body {
 
 /* Icon Styling */
 .nav-links li i {
-    font-size: 1.5rem;
-    transition: color var(--transition-speed);
+    font-size: 1.6rem; /* Slightly larger for better visibility */
+    transition: color var(--transition-speed), transform var(--transition-speed);
 }
 
+/* Smooth Hover Effect */
 .nav-links li:hover i {
     color: white;
+    transform: scale(1.1); /* Slight enlargement for better interactivity */
+}
+
+/* Active State */
+.nav-links li.active i {
+    color: var(--secondary-color); /* Highlighted color for active icons */
+    font-weight: bold;
+}
+
+/* Animated Entrance */
+.nav-links li i {
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeInIcon 0.4s ease-in-out forwards;
+}
+
+/* Keyframes for Smooth Icon Appearance */
+@keyframes fadeInIcon {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .nav-links li i {
+        font-size: 1.4rem; /* Slightly smaller for compact UI */
+    }
+
+    .nav-links li:hover i {
+        transform: scale(1.2);
+    }
 }
 
 /* Responsive Design */
