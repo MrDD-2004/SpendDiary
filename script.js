@@ -135,11 +135,9 @@ function updateSummaryCards() {
 
     // Calculate budget-expense difference
     const budgetExpenseDiff = monthlyBudget - monthlyExpenses;
-
     document.getElementById('totalBalance').textContent = `₹${budgetExpenseDiff.toFixed(2)}`;
     document.getElementById('monthlyExpenses').textContent = `₹${monthlyExpenses.toFixed(2)}`;
     monthlyBudgetDisplay.textContent = `₹${monthlyBudget.toFixed(2)}`;
-
     // Add visual feedback for budget status
     if (monthlyExpenses > monthlyBudget) {
         monthlyBudgetDisplay.style.color = '#ff6b6b';
