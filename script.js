@@ -191,49 +191,78 @@ function updateCharts() {
         }
     });
 
-    // Trend Chart
-    const ctx3 = document.getElementById('trendChart').getContext('2d');
-    if (trendChart) trendChart.destroy();
-    trendChart = new Chart(ctx3, {
-        type: 'bar',
-        data: {
-            labels: getLast6Months(),
-            datasets: [{
-                label: 'Monthly Expenses',
-                data: getMonthlyExpenses(),
-                backgroundColor: '#6c5ce7',
-                borderRadius: 5
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Monthly Expense Trends',
-                    font: {
-                        size: 16
-                    }
+ // Trend Chart with Enhancements
+const ctx3 = document.getElementById('trendChart').getContext('2d');
+
+if (trendChart) trendChart.destroy();
+
+trendChart = new Chart(ctx3, {
+    type: 'line', // Switched to line chart for better trend visualization
+    data: {
+        labels: getLast6Months(),
+        datasets: [{
+            label: 'Monthly Expenses',
+            data: getMonthlyExpenses(),
+            backgroundColor: 'rgba(108, 92, 231, 0.2)', // Soft fill for better visuals
+            borderColor: '#6c5ce7', // Keeps brand consistency
+            borderWidth: 2,
+            pointBackgroundColor: '#6c5ce7',
+            pointBorderColor: '#fff',
+            pointRadius: 5,
+            tension: 0.4 // Smooths out the line curve
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Monthly Expense Trends',
+                font: {
+                    size: 18,
+                    weight: 'bold'
                 },
-                legend: {
-                    display: true,
-                    position: 'top'
+                color: '#333'
+            },
+            legend: {
+                display: true,
+                position: 'top',
+                labels: {
+                    font: {
+                        size: 14
+                    }
                 }
             },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        callback: function(value) {
-                            return '₹' + value;
-                        }
+            tooltip: {
+                callbacks: {
+                    label: function(tooltipItem) {
+                        return `₹${tooltipItem.raw.toLocaleString()}`;
                     }
                 }
             }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    callback: function(value) {
+                        return `₹${value.toLocaleString()}`;
+                    }
+                },
+                grid: {
+                    color: 'rgba(200, 200, 200, 0.2)'
+                }
+            },
+            x: {
+                grid: {
+                    display: false
+                }
+            }
         }
-    });
-}
+    }
+});
+
 
 // Helper Functions for Charts
 function getCategories() {
