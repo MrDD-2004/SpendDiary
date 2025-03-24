@@ -305,3 +305,44 @@ body {
     font-size: 1.2rem;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+        padding: 1rem;
+    }
+
+    .sidebar .profile-section h2,
+    .sidebar .profile-section p,
+    .sidebar .nav-links li span {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 70px;
+    }
+
+    .nav-links li {
+        justify-content: center;
+    }
+
+    .nav-links li i {
+        margin: 0;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section.active {
+    animation: fadeIn 0.5s ease-out;
+}
