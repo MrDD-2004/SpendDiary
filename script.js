@@ -152,44 +152,66 @@ function updateSummaryCards() {
 
 // Charts
 function updateCharts() {
-    // Category Chart
-    const ctx2 = document.getElementById('categoryChart').getContext('2d');
-    if (categoryChart) categoryChart.destroy();
-    categoryChart = new Chart(ctx2, {
-        type: 'doughnut',
-        data: {
-            labels: getCategories(),
-            datasets: [{
-                data: getCategoryTotals(),
-                backgroundColor: [
-                    '#6c5ce7',
-                    '#a8a4e6',
-                    '#81ecec',
-                    '#00cec9',
-                    '#00b894',
-                    '#55efc4'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Expenses by Category',
-                    font: {
-                        size: 16
-                    }
+   // Category Chart with Enhancements
+const ctx2 = document.getElementById('categoryChart').getContext('2d');
+
+if (categoryChart) categoryChart.destroy();
+
+categoryChart = new Chart(ctx2, {
+    type: 'doughnut',
+    data: {
+        labels: getCategories(),
+        datasets: [{
+            data: getCategoryTotals(),
+            backgroundColor: [
+                '#6c5ce7', '#a29bfe', '#00cec9', 
+                '#ff7675', '#fdcb6e', '#e17055'
+            ],
+            borderColor: '#fff', // Adds contrast between sections
+            borderWidth: 2,
+            hoverOffset: 10 // Expands slices on hover for better UX
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '60%', // Creates a sleek, modern donut effect
+        plugins: {
+            title: {
+                display: true,
+                text: 'Expenses by Category',
+                font: {
+                    size: 18,
+                    weight: 'bold'
                 },
-                legend: {
-                    display: true,
-                    position: 'right'
+                color: '#333'
+            },
+            legend: {
+                display: true,
+                position: 'right',
+                labels: {
+                    font: {
+                        size: 14
+                    },
+                    usePointStyle: true, // Makes legend dots circular
+                    padding: 15
+                }
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(tooltipItem) {
+                        let value = tooltipItem.raw.toLocaleString();
+                        return `₹${value}`;
+                    }
                 }
             }
+        },
+        animation: {
+            animateRotate: true,
+            animateScale: true
         }
-    });
+    }
+});
 
     // Trend Chart
     const ctx3 = document.getElementById('trendChart').getContext('2d');
