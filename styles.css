@@ -490,21 +490,67 @@ body {
         transition: font-size 0.3s ease-in-out;
     }
 
-    /* Add hover effect to expand sidebar */
+  /* Sidebar Hover Effect - Smooth Expansion */
+.sidebar {
+    width: 70px;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden; /* Prevents text from overflowing */
+}
+
+/* Expand Sidebar on Hover */
+.sidebar:hover {
+    width: 220px; /* Slightly wider for better visibility */
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Reveal Hidden Elements */
+.sidebar:hover .profile-section h2,
+.sidebar:hover .profile-section p,
+.sidebar:hover .nav-links li span {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+/* Smooth Transition for Nav Items */
+.sidebar:hover .nav-links li {
+    justify-content: flex-start;
+    padding-left: 1rem;
+    transition: padding-left 0.3s ease-in-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Icon Rotation on Hover */
+.sidebar:hover .nav-links li i {
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar:hover .nav-links li:hover i {
+    transform: rotate(10deg); /* Subtle rotation for interactivity */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+    }
+
     .sidebar:hover {
-        width: 200px;
+        width: 180px;
     }
+}
 
-    .sidebar:hover .profile-section h2,
-    .sidebar:hover .profile-section p,
-    .sidebar:hover .nav-links li span {
-        display: inline;
-    }
-
-    .sidebar:hover .nav-links li {
-        justify-content: flex-start;
-        padding-left: 1rem;
-    }
 }
 
 /* Animation */
