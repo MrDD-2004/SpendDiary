@@ -25,17 +25,24 @@ body {
     min-height: 100vh;
 }
 
-/* Sidebar Style */
+/* Sidebar Style Enhancements */
 .sidebar {
     width: var(--sidebar-width);
     background-color: var(--card-background);
     padding: 2rem;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow for depth */
     position: fixed;
     height: 100vh;
-    transition: all var(--transition-speed);
+    transition: width var(--transition-speed), background-color var(--transition-speed);
+    overflow: hidden; /* Prevents overflow issues */
 }
 
+/* Sidebar Hover Effect for Expandability */
+.sidebar:hover {
+    width: 250px; /* Expands sidebar on hover */
+}
+
+/* App Title */
 .app-title {
     text-align: center;
     margin-bottom: 2rem;
@@ -48,21 +55,32 @@ body {
     font-size: 2rem;
     font-weight: bold;
     margin: 0;
+    transition: color var(--transition-speed);
 }
 
+/* Profile Section */
 .profile-section {
     text-align: center;
     margin-bottom: 2rem;
+    transition: opacity var(--transition-speed);
 }
 
 .profile-image {
     font-size: 4rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
+    transition: transform var(--transition-speed);
 }
 
+/* Subtle Hover Effect for Profile */
+.profile-image:hover {
+    transform: scale(1.1);
+}
+
+/* Navigation Links */
 .nav-links {
     list-style: none;
+    padding: 0;
 }
 
 .nav-links li {
@@ -70,21 +88,64 @@ body {
     margin: 0.5rem 0;
     border-radius: 8px;
     cursor: pointer;
-    transition: all var(--transition-speed);
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
     display: flex;
     align-items: center;
     gap: 1rem;
+    color: var(--text-color);
 }
 
+/* Hover & Active Effects */
 .nav-links li:hover {
     background-color: var(--secondary-color);
     color: white;
+    transform: translateX(5px); /* Subtle movement for a dynamic feel */
 }
 
 .nav-links li.active {
     background-color: var(--primary-color);
     color: white;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2); /* Adds a subtle pressed effect */
 }
+
+/* Icon Styling */
+.nav-links li i {
+    font-size: 1.5rem;
+    transition: color var(--transition-speed);
+}
+
+.nav-links li:hover i {
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+        padding: 1rem;
+    }
+
+    .sidebar:hover {
+        width: 220px;
+    }
+
+    .app-title h1,
+    .profile-section,
+    .nav-links li span {
+        display: none;
+    }
+
+    .sidebar:hover .app-title h1,
+    .sidebar:hover .profile-section,
+    .sidebar:hover .nav-links li span {
+        display: inline-block;
+    }
+
+    .nav-links li {
+        justify-content: center;
+    }
+}
+
 
 /* Main Content Style */
 .main-content {
