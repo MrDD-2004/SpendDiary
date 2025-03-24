@@ -16,7 +16,7 @@
             </div>
             <div class="profile-section">
                 <div class="profile-image">
-                    <i class="fas fa-user-circle"></i>
+                    <img src="default-user.png" alt="User Image">
                 </div>
                 <h2 id="userName">User</h2>
                 <p id="userEmail">user@email.com</p>
@@ -34,6 +34,7 @@
         <main class="main-content">
             <div class="section" id="dashboard">
                 <h1>Dashboard</h1>
+                <p class="motivational-quote">"Track your spending, master your future."</p>
                 <div class="summary-cards">
                     <div class="card">
                         <h3>Available Funds</h3>
@@ -54,6 +55,7 @@
 
             <div class="section hidden" id="expenses">
                 <h1>Expenses</h1>
+                <input type="text" id="searchExpenses" placeholder="Search Expenses..." class="search-bar">
                 <div class="expenses-list" id="expensesList">
                     <!-- Expenses will be dynamically added here -->
                 </div>
@@ -143,4 +145,4 @@
     </div>
     <script src="script.js"></script>
 </body>
-</html> 
+</html>
