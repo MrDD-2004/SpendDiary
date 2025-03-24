@@ -305,11 +305,12 @@ body {
     font-size: 1.2rem;
 }
 
-/* Responsive Designs */
+/* Responsive Design Enhancements */
 @media (max-width: 768px) {
     .sidebar {
-        width: 70px;
-        padding: 1rem;
+        width: 65px;
+        padding: 0.8rem;
+        transition: width 0.3s ease-in-out, padding 0.3s ease-in-out;
     }
 
     .sidebar .profile-section h2,
@@ -319,15 +320,34 @@ body {
     }
 
     .main-content {
-        margin-left: 70px;
+        margin-left: 65px;
+        transition: margin-left 0.3s ease-in-out;
     }
 
     .nav-links li {
         justify-content: center;
+        padding: 0.8rem 0;
     }
 
     .nav-links li i {
-        margin: 0;
+        font-size: 1.5rem;
+        transition: font-size 0.3s ease-in-out;
+    }
+
+    /* Add hover effect to expand sidebar */
+    .sidebar:hover {
+        width: 200px;
+    }
+
+    .sidebar:hover .profile-section h2,
+    .sidebar:hover .profile-section p,
+    .sidebar:hover .nav-links li span {
+        display: inline;
+    }
+
+    .sidebar:hover .nav-links li {
+        justify-content: flex-start;
+        padding-left: 1rem;
     }
 }
 
