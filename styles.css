@@ -317,30 +317,87 @@ body {
     height: 100% !important;
 }
 
-/* Expenses Lists */
+/* Expenses List */
 .expenses-list {
     display: grid;
     gap: 1rem;
+    padding: 1rem 0; /* Added padding for better spacing */
 }
 
+/* Expense Item */
 .expense-item {
     background-color: var(--card-background);
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.2rem; /* Slightly increased padding for better spacing */
+    border-radius: 10px; /* More rounded corners for a modern feel */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08); /* Softer shadow for a cleaner look */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
+/* Subtle Hover Effect */
+.expense-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12); /* Enhanced shadow for hover */
+}
+
+/* Expense Text */
+.expense-item .expense-text {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    flex-grow: 1; /* Ensures text takes available space */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Handles long text gracefully */
+}
+
+/* Expense Amount */
+.expense-item .expense-amount {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-right: 1rem;
+}
+
+/* Delete Button */
 .expense-item .delete-btn {
     color: #ff6b6b;
     cursor: pointer;
-    transition: color var(--transition-speed);
+    transition: color var(--transition-speed), transform 0.2s;
+    font-size: 1.2rem;
 }
 
+/* Delete Button Hover Effect */
 .expense-item .delete-btn:hover {
     color: #ff5252;
+    transform: scale(1.1); /* Slight scale effect for better feedback */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .expense-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .expense-item .expense-text {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        max-width: 100%;
+    }
+
+    .expense-item .expense-amount {
+        font-size: 1rem;
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .expense-item .delete-btn {
+        align-self: flex-end; /* Align delete button to the right */
+    }
 }
 
 /* Analytics Containers */
