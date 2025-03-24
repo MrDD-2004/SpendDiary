@@ -143,8 +143,8 @@ function updateSummaryCards() {
         monthlyBudgetDisplay.style.color = '#ff6b6b';
         document.getElementById('totalBalance').style.color = '#ff6b6b';
     } else {
-        monthlyBudgetDisplay.style.color = '#6c5ce7';
-        document.getElementById('totalBalance').style.color = '#6c5ce7';
+        monthlyBudgetDisplay.style.color = 'var(--primary-color)';
+        document.getElementById('totalBalance').style.color = 'var(--primary-color)';
     }
 }
 
@@ -162,7 +162,7 @@ categoryChart = new Chart(ctx2, {
         datasets: [{
             data: getCategoryTotals(),
             backgroundColor: [
-                '#6c5ce7', '#a29bfe', '#00cec9', 
+                'var(--primary-color)', 'var(--secondary-color)', '#00cec9', 
                 '#ff7675', '#fdcb6e', '#e17055'
             ],
             borderColor: '#fff', // Adds contrast between sections
@@ -221,7 +221,7 @@ categoryChart = new Chart(ctx2, {
             datasets: [{
                 label: 'Monthly Expenses',
                 data: getMonthlyExpenses(),
-                backgroundColor: '#6c5ce7',
+                backgroundColor: 'var(--primary-color)',
                 borderRadius: 5
             }]
         },
