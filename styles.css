@@ -25,7 +25,7 @@ body {
     min-height: 100vh;
 }
 
-/* Sidebar Styles */
+/* Sidebar Style */
 .sidebar {
     width: var(--sidebar-width);
     background-color: var(--card-background);
@@ -86,7 +86,7 @@ body {
     color: white;
 }
 
-/* Main Content Styles */
+/* Main Content Style */
 .main-content {
     flex: 1;
     margin-left: var(--sidebar-width);
@@ -101,7 +101,7 @@ body {
     display: block;
 }
 
-/* Card Styles */
+/* Card Style */
 .summary-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -158,7 +158,7 @@ body {
     background-color: var(--primary-color);
 }
 
-/* Form Styles */
+/* Form Style */
 .expense-form {
     max-width: 600px;
     margin: 0 auto;
@@ -202,7 +202,7 @@ body {
     background-color: var(--secondary-color);
 }
 
-/* Chart Container */
+/* Chart Containers */
 .chart-container {
     background-color: var(--card-background);
     padding: 1.5rem;
@@ -218,7 +218,7 @@ body {
     height: 100% !important;
 }
 
-/* Expenses List */
+/* Expenses Lists */
 .expenses-list {
     display: grid;
     gap: 1rem;
@@ -244,7 +244,7 @@ body {
     color: #ff5252;
 }
 
-/* Analytics Container */
+/* Analytics Containers */
 .analytics-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -255,7 +255,7 @@ body {
     height: 500px;
 }
 
-/* Settings Container */
+/* Settings Containers */
 .settings-container {
     max-width: 600px;
     margin: 0 auto;
@@ -265,7 +265,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Contact Container */
+/* Contact Containers */
 .contact-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -305,7 +305,7 @@ body {
     font-size: 1.2rem;
 }
 
-/* Responsive Design */
+/* Responsive Designs */
 @media (max-width: 768px) {
     .sidebar {
         width: 70px;
@@ -331,7 +331,7 @@ body {
     }
 }
 
-/* Animations */
+/* Animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -345,4 +345,4 @@ body {
 
 .section.active {
     animation: fadeIn 0.5s ease-out;
-} 
+}
