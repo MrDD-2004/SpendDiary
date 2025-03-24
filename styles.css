@@ -70,7 +70,7 @@ body {
     margin: 0.5rem 0;
     border-radius: 8px;
     cursor: pointer;
-    transition: all var(--transition-speed);
+    transition: all var(--transition-speed), transform 0.2s ease-in-out;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -79,6 +79,7 @@ body {
 .nav-links li:hover {
     background-color: var(--secondary-color);
     color: white;
+    transform: scale(1.05);
 }
 
 .nav-links li.active {
@@ -113,12 +114,13 @@ body {
     background-color: var(--card-background);
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform var(--transition-speed);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform var(--transition-speed), box-shadow 0.3s ease-in-out;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .card h3 {
@@ -150,41 +152,13 @@ body {
     border-radius: 6px;
     cursor: pointer;
     font-size: 0.9rem;
-    transition: background-color var(--transition-speed);
+    transition: background-color var(--transition-speed), transform 0.2s ease-in-out;
     width: 100%;
 }
 
 .btn-secondary:hover {
     background-color: var(--primary-color);
-}
-
-/* Form Style */
-.expense-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: var(--card-background);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-}
-
-.form-group input,
-.form-group select {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 1rem;
+    transform: scale(1.05);
 }
 
 .btn-primary {
@@ -195,154 +169,10 @@ body {
     border-radius: 6px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color var(--transition-speed);
+    transition: background-color var(--transition-speed), transform 0.2s ease-in-out;
 }
 
 .btn-primary:hover {
     background-color: var(--secondary-color);
-}
-
-/* Chart Containers */
-.chart-container {
-    background-color: var(--card-background);
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
-    height: 400px;
-    position: relative;
-}
-
-.chart-container canvas {
-    width: 100% !important;
-    height: 100% !important;
-}
-
-/* Expenses Lists */
-.expenses-list {
-    display: grid;
-    gap: 1rem;
-}
-
-.expense-item {
-    background-color: var(--card-background);
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.expense-item .delete-btn {
-    color: #ff6b6b;
-    cursor: pointer;
-    transition: color var(--transition-speed);
-}
-
-.expense-item .delete-btn:hover {
-    color: #ff5252;
-}
-
-/* Analytics Containers */
-.analytics-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2rem;
-}
-
-.analytics-container .chart-container {
-    height: 500px;
-}
-
-/* Settings Containers */
-.settings-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: var(--card-background);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Contact Containers */
-.contact-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 1rem;
-}
-
-.contact-card {
-    background-color: var(--card-background);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform var(--transition-speed);
-    text-align: center;
-}
-
-.contact-card:hover {
-    transform: translateY(-5px);
-}
-
-.contact-info h3 {
-    color: var(--text-color);
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-.contact-info p {
-    color: var(--primary-color);
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.contact-info i {
-    font-size: 1.2rem;
-}
-
-/* Responsive Designs */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 70px;
-        padding: 1rem;
-    }
-
-    .sidebar .profile-section h2,
-    .sidebar .profile-section p,
-    .sidebar .nav-links li span {
-        display: none;
-    }
-
-    .main-content {
-        margin-left: 70px;
-    }
-
-    .nav-links li {
-        justify-content: center;
-    }
-
-    .nav-links li i {
-        margin: 0;
-    }
-}
-
-/* Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.section.active {
-    animation: fadeIn 0.5s ease-out;
+    transform: scale(1.05);
 }
