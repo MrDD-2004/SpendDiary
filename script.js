@@ -162,18 +162,18 @@ categoryChart = new Chart(ctx2, {
         datasets: [{
             data: getCategoryTotals(),
             backgroundColor: [
-                'var(--primary-color)', 'var(--secondary-color)', '#00cec9', 
-                '#ff7675', '#fdcb6e', '#e17055'
+                '#6c5ce7', '#a29bfe', '#8c7ae6', 
+                '#9b88f7', '#7d6ee7', '#b4a8fc'
             ],
-            borderColor: '#fff', // Adds contrast between sections
+            borderColor: '#fff',
             borderWidth: 2,
-            hoverOffset: 10 // Expands slices on hover for better UX
+            hoverOffset: 10
         }]
     },
     options: {
         responsive: true,
         maintainAspectRatio: false,
-        cutout: '60%', // Creates a sleek, modern donut effect
+        cutout: '60%',
         plugins: {
             title: {
                 display: true,
@@ -191,7 +191,7 @@ categoryChart = new Chart(ctx2, {
                     font: {
                         size: 14
                     },
-                    usePointStyle: true, // Makes legend dots circular
+                    usePointStyle: true,
                     padding: 15
                 }
             },
@@ -221,7 +221,7 @@ categoryChart = new Chart(ctx2, {
             datasets: [{
                 label: 'Monthly Expenses',
                 data: getMonthlyExpenses(),
-                backgroundColor: 'var(--primary-color)',
+                backgroundColor: '#6c5ce7',
                 borderRadius: 5
             }]
         },
