@@ -281,5 +281,4 @@ function init() {
     updateUI();
     showSection('dashboard');
 }
-
 init(); 
