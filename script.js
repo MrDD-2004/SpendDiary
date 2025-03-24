@@ -46,7 +46,7 @@ function updateActiveNav(activeLink) {
     activeLink.classList.add('active');
 }
 
-// Expense Management
+// Expense Managementssssss
 expenseForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
